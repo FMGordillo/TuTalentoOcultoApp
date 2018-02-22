@@ -1,0 +1,162 @@
+  <html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='shortcut icon', href='/images/favicon.png', type='image/png'>
+    <link href="https://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css"
+    rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='/css/bootstrap-social.css'>
+    <!-- TODO: CAMBIAR COLORES  -->
+    <link rel='stylesheet', href='/css/style.css'>
+    <title>Resultados - Tu Talento Oculto</title>
+    <style>
+      .blurred {
+        -webkit-filter: blur(2px);
+        -moz-filter: blur(2px);
+        -o-filter: blur(2px);
+        -ms-filter: blur(2px);
+        filter: blur(2px);
+      }
+
+      .panel-body {
+        background-color: #343131 !important;
+      }
+
+      .panel {
+        background-color: #272727 !important;
+      }
+    </style>
+    <script src="/js/Chart.min.js"></script>
+  </head>
+
+  <body>
+    <div class="cover">
+      <div class="navbar">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#" onClick="move()">
+              <img class="img-responsive" alt="Brand" src="/images/ibm-logo-png-transparent-background.png">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <ul class="nav navbar-nav navbar-right"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="cover-image" style="background-image: url('/images/background3-optimized.jpg');"></div>
+      <div class="container">
+        <div class='row' style="padding-top:62px">
+          <div class="col-md-5">
+            <div class='panel'>
+              <div class="panel-body">
+                <h2 class='text-center'>Tus talentos ocultos se conectan con estas disciplinas:</h2>
+                <p>
+                  <% if (carrersOutput.length) { %>
+                    <ul>
+                      <% carrersOutput.forEach(function(carrer){ %>
+                        <li class="carrersList">- <%= carrer %></li>
+                      <% }) %>
+                    </ul>
+                  <% } %>
+                </p>
+                <!-- <a class="twitter-share-button" >Tweet</a> -->
+                <a id='linkTwitter' class="btn btn-block btn-social btn-twitter center-block" target="_blank" onClick="shareTwitterText()">
+                  <span class="fa fa-twitter"></span> Compart&iacute; tus resultados
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class='panel'>
+              <div class="panel-body">
+                <h2 class='text-center'>Tu personalidad refleja tus talentos ocultos:</h2>
+                <canvas id="myChart" width="600" height="600"></canvas>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='/js/utils.js'></script>
+    <script>
+      var player = {};
+      player.life = (<%= twitz[0].percentile %> *100).toFixed(2);
+      player.defense = (<%= twitz[1].percentile %> *100).toFixed(2);
+      player.agility = (<%= twitz[2].percentile %> *100).toFixed(2);
+      player.intellect = (<%= twitz[3].percentile %> *100).toFixed(2);
+      player.power = (<%= twitz[4].percentile %> *100).toFixed(2);
+
+      var nameArray = ['Apertura a experiencias', 'Responsabilidad',
+       'Extroversión', 'Amabilidad', 'Rango emocional'];
+      // Array that takes information from the player object to get the order
+      // in which stats are displayed onscreen. Change the order in which
+      // the player stats are defined to change order.
+
+      var data = {
+      labels: nameArray,
+      datasets: [
+            {
+                label: "Valor",
+                backgroundColor: "rgba(255, 159, 64, 0.2)",
+                borderWidth: 2,
+                borderColor: "rgba(255, 159, 64, 1)",
+                lineTension: 0.5,
+                pointBackgroundColor: "rgba(255, 159, 64, 1)",
+                pointBorderColor: "#fff",
+                pointHoverBackgroundColor: "#fff",
+                pointHoverBorderColor: "rgba(255, 159, 64, 1)",
+                fill:true,
+                data: Object.keys(player).map(function(key){return player[key]})
+            }
+          ]
+      };
+
+      var ctx = document.getElementById("myChart");
+
+      var myRadarChart = new Chart(ctx, {
+          type: 'radar',
+          data: data,
+          options: {
+              defaultFontSize: 20,
+              backgroundColor: '#000000',
+              legend: {
+                  display: false
+              },
+              elements: {
+                line: {
+                    lineTension: 0.9,
+                    borderWidth: 5,
+                },
+                arc: {
+                  borderWidth: 10,
+                  borderColor: 'red'
+                }
+              },
+              scale: {
+                pointLabels: {
+                  fontSize: 14,
+                  fontColor: 'white'
+                },
+                // angleLines: {
+                //   lineWidth: 5
+                // },
+                gridLines: {
+                  lineWidth: 2,
+                  color: '#272727'
+                },
+                ticks: {
+                  showLabelBackdrop: false
+                }
+              }
+          }
+      });
+
+    </script>
+
+  </body>
+
+</html>

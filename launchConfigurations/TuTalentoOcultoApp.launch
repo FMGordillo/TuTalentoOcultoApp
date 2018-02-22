@@ -1,0 +1,20 @@
+{
+  "ServiceId": "com.ibm.cloudoe.orion.client.deploy",
+  "Params": {
+    "Target": {
+      "Url": "https://api.ng.bluemix.net",
+      "Org": "famargor@ar.ibm.com",
+      "Space": "dev"
+    },
+    "Name": "TuTalentoOcultoApp",
+    "Instrumentation": {
+      "domain": "mybluemix.net",
+      "services": [
+        "TuTalentoOculto-cloudantNoSQLDB",
+        "Insights for Twitter-2l"
+      ]
+    }
+  },
+  "Path": "manifest.yml",
+  "Type": "Cloud Foundry"
+}

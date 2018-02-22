@@ -1,0 +1,46 @@
+{
+  "name": "tutalentooculto",
+  "homepage": "https://tutalentoocultoapp.mybluemix.net/",
+  "version": "1.0.1",
+  "description": "IBM Web app that analyze your Twitter account and get your hidden talents. Based on the movie 'Hidden Figures'",
+  "author": "Facundo Martin Gordillo <famargor@ar.ibm.com>",
+  "contributors": [
+    {
+      "name": "Pablo Rodrigo Najimovich",
+      "email": "najimovi@ar.ibm.com"
+    }
+  ],
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "cfenv": "^1.0.4",
+    "cloudant": "^1.7.0",
+    "d3": "^4.4.3",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "fs-sync": "^0.2.5",
+    "jquery": "^3.1.1",
+    "nodemon": "^1.11.0",
+    "query-string": "^4.3.1",
+    "properties-parser": "^0.2.3",
+    "request": "^2.79.0",
+    "serve-index": "^1.8.0",
+    "twit": "^2.2.5",
+    "watson-developer-cloud": "^2.15.2"
+  },
+  "engines": {
+    "node": "8.x.x",
+    "npm": "5.x.x"
+  }
+}
