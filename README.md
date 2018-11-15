@@ -1,6 +1,7 @@
-# PLEASE READ FIRST
+# ⛔️ PLEASE READ FIRST
 
 This project has been **deprecated**, please see [this repo](https://github.com/FMGordillo/TuTalentoOculto) instead
+
 
 # Tu Talento Oculto
 
