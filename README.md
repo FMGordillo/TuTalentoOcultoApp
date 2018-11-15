@@ -1,3 +1,7 @@
+# PLEASE READ FIRST
+
+This project has been **deprecated**, please see [this repo](https://github.com/FMGordillo/TuTalentoOculto) instead
+
 # Tu Talento Oculto
 
 Basada en la película [Talentos Ocultos](https://es.wikipedia.org/wiki/Hidden_Figures) creamos este portal en el cual:
